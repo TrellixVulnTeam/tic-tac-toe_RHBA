@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0. <br />
 * Using this project to learn Angular, NgRx and TailwindCSS 
-* Under development. 
+* Under development
 
 ## Development server
 
