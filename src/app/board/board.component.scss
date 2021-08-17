@@ -1,11 +1,14 @@
 main {
     display: grid;
-    grid-template-columns: 200px 200px 200px;
+    grid-template-columns: 12rem 12rem 12rem;
     grid-gap: 10px;
     margin-top: 20px;
 }
   
 app-square {
     border: 1px gray solid;
-    height: 200px;
+    height: 12rem;
+    display: flex;
+    justify-content: center;
+    text-align: center;
 }

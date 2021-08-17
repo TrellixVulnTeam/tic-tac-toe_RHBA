@@ -1,7 +1,7 @@
 # Tic Tac Toe
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.0. <br />
-* Using this project to learn AngularJS and NgRx 
+* Using this project to learn AngularJS, NgRx and TailwindCSS 
 * Under development. 
 
 ## Development server
