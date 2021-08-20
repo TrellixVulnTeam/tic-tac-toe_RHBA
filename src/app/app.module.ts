@@ -4,7 +4,6 @@ import { StoreModule } from '@ngrx/store';
 import { AppComponent } from './app.component';
 import { SquareComponent } from './square/square.component';
 import { BoardComponent } from './board/board.component';
-// import { ScoreboardModule } from './score.module';
 import { scoreReducer } from './score.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
