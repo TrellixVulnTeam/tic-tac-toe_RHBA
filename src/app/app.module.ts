@@ -18,7 +18,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   imports: [
     BrowserModule,
     StoreModule.forRoot({score: scoreReducer}),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: true })
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: true }),
+    // EffectsModule.forRoot([AppEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { incrementX, incrementO, resetGame } from '../score.actions';
-import { State } from '../score.reducer';
+import { incrementX, incrementO, incrementRound, resetGame } from '../score.actions';
+import { getPlayerX, getPlayerO, getRound } from '../index';
 
 @Component({
   selector: 'app-board',
@@ -14,12 +14,14 @@ export class BoardComponent implements OnInit {
   xIsNext: boolean;
   winner: string;
   isGameOver: boolean;
-  scoreX$: Observable<State>
-  scoreO$: Observable<State>
+  scoreX$: Observable<number>;
+  scoreO$: Observable<number>;
+  round$: Observable<number>;
 
   constructor(private store: Store<{ score }>) { 
-    this.scoreX$ = store.select('score');
-    this.scoreO$ = store.select('score');
+    this.scoreX$ = store.select(getPlayerX);
+    this.scoreO$ = store.select(getPlayerO);
+    this.round$ = store.select(getRound);
   }
 
   ngOnInit() {
@@ -31,6 +33,7 @@ export class BoardComponent implements OnInit {
     this.winner = null;
     this.xIsNext = true;
     this.isGameOver = false;
+    this.incrementRound();
   }
 
   incrementX() {
@@ -39,6 +42,10 @@ export class BoardComponent implements OnInit {
 
   incrementO() {
     this.store.dispatch(incrementO());
+  }
+
+  incrementRound() {
+    this.store.dispatch(incrementRound());
   }
 
   resetGame() {
