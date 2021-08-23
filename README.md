@@ -17,7 +17,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * Congratulatory message for the winner! 
 
 **Demo Picture:**
-<br />
+<br></br>
 ![Demo](/src/Demo.png?raw=true "Demo")
 
 ## Development server
