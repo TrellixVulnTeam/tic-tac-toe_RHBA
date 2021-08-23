@@ -31,7 +31,7 @@
             >
             <button    
                 class="font-sans shadow-lg m-4 w-42 py-3 px-6 text-white rounded-lg bg-purple-600 hover:bg-purple-700 shadow-lg block md:inline-block"
-                (click)="editToDo(todo.id, editedContent)"
+                (click)="editToDo(todo.id, (editedContent == null) ? todo.content : editedContent)"
             >
                 Confirm Edit
             </button>
