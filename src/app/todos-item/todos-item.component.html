@@ -1,5 +1,5 @@
 <div *ngIf="displayType == 'Show All' || displayType == 'Completed' || displayType == 'Active'">
-    <div class="rounded-md border-2 border-indigo-900 border-opacity-25 text-left m-2 bg-indigo-400 text-white" *ngIf="!todo.completed && displayType != 'Completed'">  
+    <div class="rounded-md border-2 border-indigo-900 border-opacity-25 text-left m-2 bg-purple-600 bg-opacity-75 text-white" *ngIf="!todo.completed && displayType != 'Completed'">  
         <p class="italic font-bold text-purple m-2">To-Do:</p> 
         <p class="m-2">{{todo.content}}</p>
         <p class="m-2 font-light">Status: Incomplete</p>
