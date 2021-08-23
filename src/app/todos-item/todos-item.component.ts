@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ToDo } from '../todos/todos.selector';
 
 @Component({
@@ -7,7 +7,14 @@ import { ToDo } from '../todos/todos.selector';
   styleUrls: ['./todos-item.component.scss']
 })
 export class TodosItemComponent {
+  @Output() onRemoveToDo = new EventEmitter<number>();
+
   @Input() todo: ToDo;
+
   constructor() { }
+
+  removeToDo() {
+    this.onRemoveToDo.emit(this.todo.id);
+  }
 
 }

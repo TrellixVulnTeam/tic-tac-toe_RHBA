@@ -1,6 +1,6 @@
 import { addToDo, removeToDo } from "./todos.actions";
 import { createReducer, on } from '@ngrx/store';
-import { initialState } from './todos.selector';
+import { initialState, ToDoState } from './todos.selector';
 import { ToDo } from "./todos.selector";
 // import { v4 as uuidv4 } from 'uuid';
 
@@ -17,7 +17,7 @@ const _todoReducer = createReducer(
     })),
 );
 
-export function todoReducer(state, action) {
+export function todoReducer(state: ToDoState, action) {
     return _todoReducer (state, action);
 }
 

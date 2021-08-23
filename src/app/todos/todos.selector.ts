@@ -13,7 +13,7 @@ export const initialState: ToDoState = {
     list: [{ id: 1, content: "Testing To Do", completed: false } as ToDo]
 };
 
-export const TODO_STATE_NAME = 'todoReducer';
+export const TODO_STATE_NAME = 'todoDetails';
 
 const getToDoState = createFeatureSelector<ToDoState>(TODO_STATE_NAME);
 

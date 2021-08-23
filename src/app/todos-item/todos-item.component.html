@@ -1,11 +1,25 @@
-<div class="text-center m-2" *ngIf="!todo.completed" >  
-    <p>Item: {{todo.id}}</p>  
-    <p>Content: {{todo.content}}</p> 
-    <p>Completed: {{todo.completed}}</p>
+<div class="rounded-md border-2 border-indigo-900 text-center m-2" *ngIf="!todo.completed">  
+    <!-- <p class="m-2">Item: {{todo.id}}</p>   -->
+    <p class="m-2">Content: {{todo.content}}</p> 
+    <p class="m-2">Completed: {{todo.completed}}</p>
+    <button 
+        class="font-sans shadow-lg m-4 w-42 py-3 px-6 text-white rounded-lg bg-red-400 hover:bg-red-700 shadow-lg block md:inline-block"
+        (click)="removeToDo()"
+    >
+        Remove
+    </button>
+    <button 
+        class="font-sans shadow-lg m-4 w-42 py-3 px-6 text-white rounded-lg bg-green-400 hover:bg-green-700 shadow-lg block md:inline-block"
+        (click)="removeToDo()"
+    >   
+        Completed
+    </button>
 </div>
 
-<div class="text-center m-2" *ngIf="todo.completed" >  
+<div class="text-center m-2" *ngIf="todo.completed">  
     <p>Item: {{todo.id}}</p>  
     <p>Content: {{todo.content}}</p> 
     <p>Completed: {{todo.completed}}</p>
+    <button (click)="removeToDo()">Remove</button>
 </div>
+

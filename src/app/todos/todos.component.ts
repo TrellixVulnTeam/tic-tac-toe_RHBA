@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { getToDos } from './todos.selector';
-import { addToDo } from '../todos/todos.actions';
+import { addToDo, removeToDo } from '../todos/todos.actions';
 import { ToDo } from './todos.selector';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -17,6 +17,7 @@ export class TodosComponent implements OnInit {
   todos: any[];
   newContent: string;
   newID: number;
+  showType: string;
 
   constructor(private store: Store<{ todoDetails }>) {
     this.list$ = store.select(getToDos);
@@ -28,8 +29,16 @@ export class TodosComponent implements OnInit {
   addToDo() {
     this.newID = uuidv4();
     // this.store.dispatch(addToDo({ content: this.newContent || 'Untitled'}));
-    this.store.dispatch(addToDo({ id: this.newID, content: this.newContent || 'Untitled', completed: false }))
+    this.store.dispatch(addToDo({ id: this.newID, content: this.newContent || 'Untitled', completed: false }));
     this.newContent = '';
   }
 
+  removeToDo(id: number) {
+    this.store.dispatch(removeToDo({id}));
+  }
+
+  changeShowType(type: string) {
+    this.showType = type;
+    console.log(this.showType);
+  }
 }

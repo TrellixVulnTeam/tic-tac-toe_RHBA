@@ -14,16 +14,30 @@
     </button>
 </div>
 <h1 class="text-center m-4">To Do List</h1>
-<!-- <app-todos-item
-    class="text-center m-4"
-    *ngFor="let val of todos; let i = index" 
-    [todo]="val"
-    (click)="addToDo()"
->
-</app-todos-item> -->
-<main class="justify-center">
+
+<div class="flex justify-center">
+    <button    
+        class="font-sans shadow-lg m-4 w-42 py-3 px-6 text-white rounded-lg bg-purple-600 hover:bg-purple-700 shadow-lg block md:inline-block"
+        (click)="changeShowType('Active')"
+    >
+        Active
+    </button>
+    <button    
+        class="font-sans shadow-lg m-4 w-42 py-3 px-6 text-white rounded-lg bg-purple-600 hover:bg-purple-700 shadow-lg block md:inline-block"
+        (click)="changeShowType('Completed')"
+    >
+        Completed
+    </button>
+    <button    
+        class="font-sans shadow-lg m-4 w-42 py-3 px-6 text-white rounded-lg bg-purple-600 hover:bg-purple-700 shadow-lg block md:inline-block"
+        (click)="changeShowType('Show All')"
+    >
+        Show All
+    </button>
+</div>
+<div class="flex justify-center flex-wrap">
     <app-todos-item 
         *ngFor="let items of list$ | async"
         [todo] = "items">
     </app-todos-item>
-</main>
+</div>
