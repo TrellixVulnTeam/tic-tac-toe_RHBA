@@ -13,9 +13,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 * Filter To-Do List by "Active", "Completed" & "Show All"
 
 **Tic-Tac-Toe Features:** 
-* Points tabulation + Round Count
+* Points Tabulation + Round Count
 * Each player is colour coded
-* Congratulations message for the winner! 
+* Congratulatory message for the winner! 
 
 ## Development server
 
