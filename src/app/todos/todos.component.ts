@@ -17,7 +17,7 @@ export class TodosComponent implements OnInit {
   todos: any[];
   newContent: string;
   newID: number;
-  showType: string;
+  showType: string = 'Active';
 
   constructor(private store: Store<{ todoDetails }>) {
     this.list$ = store.select(getToDos);
@@ -28,7 +28,6 @@ export class TodosComponent implements OnInit {
 
   addToDo() {
     this.newID = uuidv4();
-    // this.store.dispatch(addToDo({ content: this.newContent || 'Untitled'}));
     this.store.dispatch(addToDo({ id: this.newID, content: this.newContent || 'Untitled', completed: false }));
     this.newContent = '';
   }

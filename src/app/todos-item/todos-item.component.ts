@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ToDo } from '../todos/todos.selector';
+import { Store } from '@ngrx/store';
+import { removeToDo, completeToDo } from '../todos/todos.actions';
 
 @Component({
   selector: 'app-todos-item',
@@ -7,14 +9,17 @@ import { ToDo } from '../todos/todos.selector';
   styleUrls: ['./todos-item.component.scss']
 })
 export class TodosItemComponent {
-  @Output() onRemoveToDo = new EventEmitter<number>();
 
   @Input() todo: ToDo;
+  @Input() displayType: string;
 
-  constructor() { }
+  constructor(private store: Store<{ todoDetails }>) { }
 
-  removeToDo() {
-    this.onRemoveToDo.emit(this.todo.id);
+  removeToDo(id: number) {
+    this.store.dispatch(removeToDo({id}));
   }
 
+  completeToDo(id: number) {
+    this.store.dispatch(completeToDo({id}));
+  }
 }

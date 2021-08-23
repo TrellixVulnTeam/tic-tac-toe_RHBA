@@ -35,8 +35,27 @@
         Show All
     </button>
 </div>
-<div class="flex justify-center flex-wrap">
+<div class="flex justify-center flex-wrap" *ngIf="showType=='Active'">
     <app-todos-item 
+        [displayType] = "showType"
+        *ngFor="let items of list$ | async"
+        [todo] = "items"
+    >
+    </app-todos-item>
+</div>
+
+<div class="flex justify-center flex-wrap" *ngIf="showType=='Completed'">
+    <app-todos-item
+        [displayType] = "showType"
+        *ngFor="let items of list$ | async"
+        [todo] = "items"
+    >
+    </app-todos-item>
+</div>
+
+<div class="flex justify-center flex-wrap" *ngIf="showType=='Show All'">
+    <app-todos-item 
+        [displayType] = "showType"
         *ngFor="let items of list$ | async"
         [todo] = "items">
     </app-todos-item>

@@ -1,25 +1,31 @@
-<div class="rounded-md border-2 border-indigo-900 text-center m-2" *ngIf="!todo.completed">  
-    <!-- <p class="m-2">Item: {{todo.id}}</p>   -->
-    <p class="m-2">Content: {{todo.content}}</p> 
-    <p class="m-2">Completed: {{todo.completed}}</p>
-    <button 
-        class="font-sans shadow-lg m-4 w-42 py-3 px-6 text-white rounded-lg bg-red-400 hover:bg-red-700 shadow-lg block md:inline-block"
-        (click)="removeToDo()"
-    >
-        Remove
-    </button>
-    <button 
-        class="font-sans shadow-lg m-4 w-42 py-3 px-6 text-white rounded-lg bg-green-400 hover:bg-green-700 shadow-lg block md:inline-block"
-        (click)="removeToDo()"
-    >   
-        Completed
-    </button>
-</div>
+<div *ngIf="displayType == 'Show All' || displayType == 'Completed' || displayType == 'Active'">
+    <div class="rounded-md border-2 border-indigo-900 border-opacity-25 text-left m-2 bg-indigo-400 text-white" *ngIf="!todo.completed && displayType != 'Completed'">  
+        <p class="italic font-bold text-purple m-2">To-Do:</p> 
+        <p class="m-2">{{todo.content}}</p>
+        <p class="m-2 font-light">Status: Incomplete</p>
+        <button 
+            class="font-sans shadow-lg m-4 w-42 py-3 px-6 text-white rounded-lg bg-red-400 hover:bg-red-700 shadow-lg block md:inline-block"
+            (click)="removeToDo(todo.id)"
+        >
+            Remove
+        </button>
+        <button 
+            class="font-sans shadow-lg m-4 w-42 py-3 px-6 text-white rounded-lg bg-green-400 hover:bg-green-700 shadow-lg block md:inline-block"
+            (click)="completeToDo(todo.id)"
+        >   
+            Completed
+        </button>
+    </div>
 
-<div class="text-center m-2" *ngIf="todo.completed">  
-    <p>Item: {{todo.id}}</p>  
-    <p>Content: {{todo.content}}</p> 
-    <p>Completed: {{todo.completed}}</p>
-    <button (click)="removeToDo()">Remove</button>
+    <div class="rounded-md border-2 border-indigo-900 border-opacity-25 text-left m-2 bg-indigo-400 text-white"*ngIf="todo.completed && displayType != 'Active'">  
+        <p class="italic font-bold text-purple m-2">To-Do:</p> 
+        <p class="m-2">{{todo.content}}</p> 
+        <p class="m-2 font-light">Status: Task Completed</p>
+        <button 
+            class="font-sans shadow-lg m-4 w-42 py-3 px-6 text-white rounded-lg bg-red-400 hover:bg-red-700 shadow-lg block md:inline-block"
+            (click)="removeToDo(todo.id)"
+        >
+            Remove
+        </button>
+    </div>
 </div>
-

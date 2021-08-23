@@ -1,7 +1,6 @@
 <br />
 <h1 class="text-center m-2">Current Player: {{ player }} </h1>
 <div class="flex justify-center">
-    <!-- <ng-container *ngIf="scoreX$ | async as score"><div class="m-2">Player X Score: {{score.playerX}}</div></ng-container> -->
     <div class="m-2">Player X Score: {{(scoreX$ | async )}}</div>
     <div class="m-2">Player O Score: {{( scoreO$ | async )}}</div>
     <div class="m-2">Round Number: {{( round$ | async )}}</div>
