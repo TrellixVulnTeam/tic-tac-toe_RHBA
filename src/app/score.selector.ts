@@ -12,7 +12,7 @@ export const initialState: GameState = {
     round: 0
 };
 
-export const GAME_STATE_NAME = 'score';
+export const GAME_STATE_NAME = 'gameDetails';
 
 const getGameState = createFeatureSelector<GameState>(GAME_STATE_NAME);
 

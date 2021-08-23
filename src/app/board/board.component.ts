@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { incrementX, incrementO, incrementRound, resetGame } from '../score.actions';
-import { getPlayerX, getPlayerO, getRound } from '../index';
+import { getPlayerX, getPlayerO, getRound } from '../score.selector';
 
 @Component({
   selector: 'app-board',
@@ -18,7 +18,7 @@ export class BoardComponent implements OnInit {
   scoreO$: Observable<number>;
   round$: Observable<number>;
 
-  constructor(private store: Store<{ score }>) { 
+  constructor(private store: Store<{ gameDetails }>) { 
     this.scoreX$ = store.select(getPlayerX);
     this.scoreO$ = store.select(getPlayerO);
     this.round$ = store.select(getRound);

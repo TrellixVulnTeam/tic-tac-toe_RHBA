@@ -1,0 +1,11 @@
+<div class="text-center m-2" *ngIf="!todo.completed" >  
+    <p>Item: {{todo.id}}</p>  
+    <p>Content: {{todo.content}}</p> 
+    <p>Completed: {{todo.completed}}</p>
+</div>
+
+<div class="text-center m-2" *ngIf="todo.completed" >  
+    <p>Item: {{todo.id}}</p>  
+    <p>Content: {{todo.content}}</p> 
+    <p>Completed: {{todo.completed}}</p>
+</div>
