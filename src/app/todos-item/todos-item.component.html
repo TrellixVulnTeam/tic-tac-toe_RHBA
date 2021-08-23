@@ -15,6 +15,27 @@
         >   
             Completed
         </button>
+        <button 
+            class="font-sans shadow-lg m-4 w-42 py-3 px-6 text-white rounded-lg bg-yellow-400 hover:bg-yellow-700 shadow-lg block md:inline-block"
+            (click)="clicked()"
+        >   
+            Edit
+        </button>
+        <br />
+        <div *ngIf="isClicked" class="text-black">
+            <input 
+                class="overflow-ellipsis overflow-hidden font-sans border border-transparent m-4 w-42 py-3 px-6 rounded shadow-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent focus:placeholder-gray-300 placeholder-gray-500 placeholder-opacity-75"   
+                placeholder="{{todo.content}}"
+                type="text"
+                [(ngModel)]="editedContent"
+            >
+            <button    
+                class="font-sans shadow-lg m-4 w-42 py-3 px-6 text-white rounded-lg bg-purple-600 hover:bg-purple-700 shadow-lg block md:inline-block"
+                (click)="editToDo(todo.id, editedContent)"
+            >
+                Confirm Edit
+            </button>
+        </div>
     </div>
 
     <div class="rounded-md border-2 border-indigo-900 border-opacity-25 text-left m-2 bg-indigo-400 text-white"*ngIf="todo.completed && displayType != 'Active'">  

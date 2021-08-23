@@ -1,4 +1,4 @@
-import { addToDo, removeToDo, completeToDo } from "./todos.actions";
+import { addToDo, removeToDo, completeToDo, editToDo } from "./todos.actions";
 import { createReducer, on } from '@ngrx/store';
 import { initialState, ToDoState } from './todos.selector';
 import { ToDo } from "./todos.selector";
@@ -16,6 +16,10 @@ const _todoReducer = createReducer(
     on(completeToDo, (state, { id }) => ({
         ...state,
         list: state.list.map(item => (item.id == id) ? {...item, completed: true} : item)
+    })),
+    on(editToDo, (state, { id, content }) => ({
+        ...state,
+        list: state.list.map(item => (item.id == id) ? {...item, content: content} : item)
     })),
 );
 
